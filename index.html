@@ -3,66 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="簡潔好玩的線上擲骰子工具">
-  <title>骰來運轉｜擲骰子</title>
+  <meta name="theme-color" content="#090909">
+  <title>命運一手｜擲骰子</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="app-shell">
-    <section class="hero" aria-labelledby="page-title">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>ROLL THE DICE</div>
-      <h1 id="page-title">骰來運轉</h1>
-      <p>讓一點隨機，替今天做個決定。</p>
-    </section>
-
-    <section class="game-panel" aria-label="擲骰子工具">
-      <div class="panel-heading">
-        <div>
-          <span class="section-label">DICE ROLLER</span>
-          <h2>準備好了嗎？</h2>
-        </div>
-        <div class="roll-count" aria-live="polite"><strong id="roll-count">0</strong><span>次擲骰</span></div>
+    <header class="site-header">
+      <img class="brand-mark" src="nths.png" alt="楠梓高中校徽">
+      <div>
+        <p class="eyebrow">THREE DICE / ONE MOMENT</p>
+        <h1>楠梓高中命運一手</h1>
       </div>
+      <div class="header-rule" aria-hidden="true"></div>
+    </header>
 
-      <div class="dice-stage" id="dice-stage" aria-live="polite" aria-label="骰子結果"></div>
-
-      <div class="result-bar">
-        <div class="result-item"><span>本次總和</span><strong id="total-value">—</strong></div>
-        <div class="result-item"><span>平均點數</span><strong id="average-value">—</strong></div>
-        <div class="result-item"><span>最高點數</span><strong id="highest-value">—</strong></div>
-      </div>
-
-      <div class="controls">
-        <label for="dice-number">骰子數量</label>
-        <div class="stepper" aria-label="調整骰子數量">
-          <button class="stepper-button" id="decrease-dice" type="button" aria-label="減少骰子">−</button>
-          <output id="dice-number" aria-live="polite">2</output>
-          <button class="stepper-button" id="increase-dice" type="button" aria-label="增加骰子">＋</button>
+    <section class="game-layout" aria-label="擲骰子遊戲">
+      <div class="play-area">
+        <div class="section-heading">
+          <p class="eyebrow">ROLL THE DICE</p>
+          <h2>把下一步交給命運</h2>
         </div>
+
+        <div class="dice-stage" aria-live="polite" aria-label="目前骰子結果">
+          <div class="die-wrap">
+            <span class="die-label">D1</span>
+            <div class="die" id="die-1" data-value="1" aria-label="第一顆骰子：1點"></div>
+          </div>
+          <div class="die-wrap">
+            <span class="die-label">D2</span>
+            <div class="die" id="die-2" data-value="1" aria-label="第二顆骰子：1點"></div>
+          </div>
+          <div class="die-wrap">
+            <span class="die-label">D3</span>
+            <div class="die" id="die-3" data-value="1" aria-label="第三顆骰子：1點"></div>
+          </div>
+        </div>
+
+        <div class="result-line">
+          <span>本次總和</span>
+          <strong id="total">3</strong>
+        </div>
+
         <button class="roll-button" id="roll-button" type="button">
-          <span class="button-icon">↻</span> 擲骰子
+          <span>擲出命運</span>
+          <span class="button-arrow" aria-hidden="true">↗</span>
         </button>
       </div>
-    </section>
 
-    <section class="history-panel" aria-labelledby="history-title">
-      <div class="history-heading">
-        <div>
-          <span class="section-label">RECENT ROLLS</span>
-          <h2 id="history-title">最近紀錄</h2>
+      <aside class="history-panel" aria-label="擲骰紀錄">
+        <div class="history-heading">
+          <div>
+            <p class="eyebrow">ROLL LOG</p>
+            <h2>擲骰紀錄</h2>
+          </div>
+          <span class="roll-count" id="roll-count">0 次</span>
         </div>
-        <button class="clear-button" id="clear-history" type="button">清除紀錄</button>
-      </div>
-      <div class="history-list" id="history-list">
-        <p class="empty-state">開始擲骰後，結果會出現在這裡。</p>
-      </div>
+        <div class="history-list" id="history-list">
+          <p class="empty-state">還沒有紀錄<br><span>準備好就按下擲骰</span></p>
+        </div>
+        <button class="clear-button" id="clear-button" type="button" disabled>清除紀錄</button>
+      </aside>
     </section>
 
-    <footer>每一次結果，都是新的可能。</footer>
+    <footer class="site-footer">
+      <span>三骰 · 六面 · 無限可能</span>
+      <span>EST. 2026</span>
+    </footer>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
